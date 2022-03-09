@@ -13,15 +13,28 @@ app.use(express.static(path.join(__dirname, 'frontend')));
 
 io.on('connection', socket =>{
 
-    //Nachricht an neu verbundenen Clien
-    socket.emit('message', 'Willkommen im Chat'); 
+    //Nachricht an neu verbundenen Clients
+    socket.emit('message', 'Welcome to DHBW Chat'); 
+
+    socket.on('username', username => {
+        console.log(username + " joined the chat!");
+        const welcomeText = username + " joined the chat!";
+        io.emit('username', welcomeText);
+    });
 
     //Nachricht an alle verbundenen Clients, dass neuer USer im Chat
-    socket.broadcast.emit('message', 'Neuer User im Chat');
+    //socket.broadcast.emit('message', 'Neuer User im Chat');
 
+    //Wait for sent messages (other users)
+    socket.on('chatMessage', chatMessage => {
+        console.log("Chat-Message: " + chatMessage);
+        io.emit('message', chatMessage);
+    });
+
+    //Still issues because of connection interrupt after changing index.html -> chat.html
     socket.on('disconnect', () => {
-
-        io.emit('message', 'User hat Chat den verlassen'); //Nachricht an alle verbundenen Clients
+        console.log('User hat den Chat verlassen');
+        io.emit('message', 'User hat den Chat verlassen'); //Nachricht an alle verbundenen Clients
         
     })
 });

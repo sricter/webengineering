@@ -13,7 +13,7 @@
 <body>
     <div class="join">
         <main class="join-main">
-            <form action="chat.html">
+            <form action="chat.html" id="username-form">
                 <div class="form-control">
                     <label for="username">Username</label>
                     <input
@@ -28,5 +28,19 @@
             </form>
         </main>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const usernameForm = document.getElementById('username-form');
+        // User form commited -> (e) = event parameter
+        usernameForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = e.target.elements.username.value;
+            console.log("User " + username + " joined the chat!")
+            socket.emit('username', username);
+            username.value = '';
+            window.location.assign("chat.html");
+        });
+    </script>
 </body>
 </html>
