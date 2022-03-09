@@ -1,0 +1,6 @@
+Array mit Usern ist vorhanden -> Abfrage, ob User bereits verbunden
+Übertragung unterschiedlicher Dateiformate
+Speicherung des Chatverlaufs und Aktualisierung dessen
+ggf. direkte Nachricht an anderen Client
+
+Der Rest ist sonst erfüllt!
