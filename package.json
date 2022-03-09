@@ -1,0 +1,23 @@
+{
+  "name": "dhbwchat",
+  "version": "1.0.0",
+  "description": "web chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sricter/webengineering.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sricter/webengineering/issues"
+  },
+  "homepage": "https://github.com/sricter/webengineering#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "socket.io": "^4.4.1"
+  }
+}
