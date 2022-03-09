@@ -13,6 +13,18 @@ app.use(express.static(path.join(__dirname, 'frontend')));
 
 io.on('connection', socket =>{
     console.log('neue Connection');
+
+    //Nachricht an neu verbundenen Clien
+    socket.emit('message', 'Willkommen im Chat'); 
+
+    //Nachricht an alle verbundenen Clients, dass neuer USer im Chat
+    socket.broadcast.emit('message', 'Neuer User im Chat');
+
+    socket.on('disconnect', () => {
+
+        io.emit('message', 'User hat Chat den verlassen'); //Nachricht an alle verbundenen Clients
+        
+    })
 });
 
 const PORT = 3000 || process.env.PORT;
