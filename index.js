@@ -12,7 +12,6 @@ const io = socketio(server); //Socketio für Server verwenden
 app.use(express.static(path.join(__dirname, 'frontend'))); 
 
 io.on('connection', socket =>{
-    console.log('neue Connection');
 
     //Nachricht an neu verbundenen Clien
     socket.emit('message', 'Willkommen im Chat'); 
