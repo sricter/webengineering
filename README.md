@@ -1,4 +1,3 @@
 # webengineering
 
-Test
-Test 2
+Simple web chat application

@@ -1,6 +1,7 @@
 const socket = io(); //können wir hier verwenden wegen Zeile in chat.html
 const chatBox = document.querySelector('.chat-box'); //id aus chat.html
 const chatMessageForm = document.getElementById('chat-message-form');
+var globalUsername = '';
 
 socket.on('message', message => {
     console.log(message);
@@ -11,6 +12,14 @@ socket.on('username', username => {
     console.log(username);
     addMessageToDOM(username);
 });
+
+/*socket.on('disconnect', () => {
+    if(!globalUsername){
+        const logofftext = globalUsername + ' hat den Chat verlassen!'
+        console.log(logofftext);
+        io.emit('message', logofftext); //Nachricht an alle verbundenen Clients
+    }
+});*/
 
 // Chat massage submit -> (e) = event parameter
 chatMessageForm.addEventListener('submit', (e) => {
