@@ -1,7 +1,7 @@
 const socket = io(); //können wir hier verwenden wegen Zeile in chat.html
 const chatBox = document.querySelector('.chat-box'); //id aus chat.html
 const chatMessageForm = document.getElementById('chat-message-form');
-var globalUsername = '';
+var GLOBAL_USERNAME = '';
 
 socket.on('message', message => {
     console.log(message);
@@ -14,8 +14,8 @@ socket.on('username', username => {
 });
 
 /*socket.on('disconnect', () => {
-    if(!globalUsername){
-        const logofftext = globalUsername + ' hat den Chat verlassen!'
+    if(!GLOBAL_USERNAME){
+        const logofftext = GLOBAL_USERNAME + ' hat den Chat verlassen!'
         console.log(logofftext);
         io.emit('message', logofftext); //Nachricht an alle verbundenen Clients
     }

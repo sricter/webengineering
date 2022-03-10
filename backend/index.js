@@ -2,13 +2,22 @@ const path = require('path');
 const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
+const {writeFileSync, readFileSync, existsSync } = require('fs');
 
 // Server
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server); //Socketio für Server verwenden
-var globalUsername = '';
+var GLOBAL_USERNAME = '';
 
+//Message storing
+const PATH_MESSAGES = "backend/messages.json";
+/*var MESSAGES = [];
+MESSAGES = JSON.parse(readFileSync(PATH_MESSAGES, {encoding: 'utf-8'}));
+console.log(MESSAGES);*/
+const MESSAGES = existsSync(PATH_MESSAGES) ? JSON.parse(readFileSync(PATH_MESSAGES, {
+    encoding: 'utf-8'
+})) : [];
 
 //Ordner als Standard setzen -> mit __dirname aktuelles Verzeichnis
 app.use(express.static(path.join(__dirname, '../frontend'))); 
@@ -19,7 +28,7 @@ io.on('connection', socket =>{
     socket.emit('message', 'Welcome to DHBW Chat'); 
 
     socket.on('username', username => {
-        globalUsername = username;
+        GLOBAL_USERNAME = username;
         const welcomeText = username + " joined the chat!";
         console.log(welcomeText);
         io.emit('username', welcomeText);
@@ -32,12 +41,15 @@ io.on('connection', socket =>{
     socket.on('chatMessage', chatMessage => {
         console.log("Chat-Message: " + chatMessage);
         io.emit('message', chatMessage);
+        MESSAGES.push(chatMessage);
+        writeFileSync(PATH_MESSAGES, JSON.stringify(MESSAGES), { encoding: 'utf8' });
+        
     });
 
     //Still issues because of connection interrupt after changing index.html -> chat.html
     socket.on('disconnect', () => {
-        if(!(globalUsername === "")){
-            const logofftext = globalUsername + ' hat den Chat verlassen!'
+        if(!(GLOBAL_USERNAME === "")){
+            const logofftext = GLOBAL_USERNAME + ' hat den Chat oder die Lobby verlassen!'
             console.log(logofftext);
             io.emit('message', logofftext); //Nachricht an alle verbundenen Clients
         }
