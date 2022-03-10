@@ -13,11 +13,11 @@ var GLOBAL_USERNAME = '';
 //Message storing
 const PATH_MESSAGES = "backend/messages.json";
 /*var MESSAGES = [];
-MESSAGES = JSON.parse(readFileSync(PATH_MESSAGES, {encoding: 'utf-8'}));
-console.log(MESSAGES);*/
+MESSAGES = JSON.parse(readFileSync(PATH_MESSAGES, {encoding: 'utf-8'}));*/
 const MESSAGES = existsSync(PATH_MESSAGES) ? JSON.parse(readFileSync(PATH_MESSAGES, {
     encoding: 'utf-8'
 })) : [];
+console.log("Stored messages: " + MESSAGES);
 
 //Ordner als Standard setzen -> mit __dirname aktuelles Verzeichnis
 app.use(express.static(path.join(__dirname, '../frontend'))); 
@@ -26,6 +26,11 @@ io.on('connection', socket =>{
 
     //Nachricht an neu verbundenen Clients
     socket.emit('message', 'Welcome to DHBW Chat'); 
+    let i = 0;
+    while(i <= MESSAGES.length){       
+        socket.emit('message', MESSAGES[i]); 
+        i++;
+    }
 
     socket.on('username', username => {
         GLOBAL_USERNAME = username;
