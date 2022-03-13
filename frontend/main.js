@@ -13,6 +13,7 @@ socket.on('username', username => {
     addMessageToDOM(username);
 });
 
+
 /*socket.on('disconnect', () => {
     if(!GLOBAL_USERNAME){
         const logofftext = GLOBAL_USERNAME + ' hat den Chat verlassen!'

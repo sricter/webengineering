@@ -8,7 +8,9 @@ const {writeFileSync, readFileSync, existsSync } = require('fs');
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server); //Socketio für Server verwenden
+
 var GLOBAL_USERNAME = '';
+const userArray = [];
 
 //Message storing
 const PATH_MESSAGES = "backend/messages.json";
@@ -33,10 +35,12 @@ io.on('connection', socket =>{
     }
 
     socket.on('username', username => {
-        GLOBAL_USERNAME = username;
-        const welcomeText = username + " joined the chat!";
+        GLOBAL_USERNAME = `${username}(${socket.id})`; //über socket.id eindeutig identifizierbar
+        userArray.push(GLOBAL_USERNAME);
+        console.log(userArray.map(user=> user));
+        const welcomeText = `${username}(${socket.id})` + " joined the chat!";
         console.log(welcomeText);
-        io.emit('username', welcomeText);
+        io.emit('username', welcomeText); 
     });
 
     //Nachricht an alle verbundenen Clients, dass neuer USer im Chat
@@ -44,9 +48,9 @@ io.on('connection', socket =>{
 
     //Wait for sent messages (other users)
     socket.on('chatMessage', chatMessage => {
-        console.log("Chat-Message: " + chatMessage);
-        io.emit('message', chatMessage);
-        MESSAGES.push(chatMessage);
+        //console.log("Chat-Message: " + chatMessage);
+        io.emit('message',`${GLOBAL_USERNAME}: ${chatMessage}`);
+        MESSAGES.push(`${GLOBAL_USERNAME}: ${chatMessage}`);
         writeFileSync(PATH_MESSAGES, JSON.stringify(MESSAGES), { encoding: 'utf8' });
         
     });
