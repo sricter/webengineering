@@ -14,7 +14,7 @@
 <body>
     <div class="join">
         <main class="join-main">
-            <form action="chat.html" id="username-form">
+            <form method="get" action="chat.html" id="username-form">
                 <div class="form-control">
                     <label for="username">Username</label>
                     <input
@@ -29,7 +29,7 @@
             </form>
         </main>
     </div>
-    <script src="/socket.io/socket.io.js"></script>
+    <!--<script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io();
         const usernameForm = document.getElementById('username-form');
@@ -42,6 +42,6 @@
             username.value = '';
             window.location.assign("chat.html");
         });
-    </script>
+    </script>-->
 </body>
 </html>
