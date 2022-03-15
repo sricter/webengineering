@@ -85,15 +85,3 @@
     list-style: none;
     padding: 30px;
 }
-.col-2 ul li{
-    list-style: 5px 0;
-}
-.col-2 ul li::before{
-    content: '';
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #080808;
-    display: inline-block;
-    margin-right: 10px;
-}
