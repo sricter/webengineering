@@ -7,27 +7,34 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>-->
     <!--<script src='main.js'></script>-->
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="login.css"/>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <title>DHBW-Chat</title>
 </head>
 <body>
+    <div class="logo">
+        <img src="DHBW-Logo2.png" width="420" height="100"  >
+    </div>
     <div class="join">
-        <main class="join-main">
-            <form method="get" action="chat.html" id="username-form">
-                <div class="form-control">
-                    <label for="username">Username</label>
-                    <input
-                        type="text"
-                        name="username"
-                        id="username"
-                        placeholder="Usernamen hier eingeben"
-                        required
-                    />
-                </div>
-                <button type="submit" class="btn">Chat beitreten</button>
-            </form>
-        </main>
+        <div class="chat">
+            <label class="welcome">Welcome to our Chat!</label>
+            <main class="join-main">
+                <form method="get" action="chat.html" id="username-form">
+                    <div class="form-control">
+                        <label for="username">Please insert Username:</label><br><br></div>
+                        <input class="field"
+                            type="text"
+                            name="username"
+                            id="username"
+                            placeholder="Usernamen hier eingeben"
+                            required
+                        />
+                    <br><br>
+                    <button type="submit" class="btn">Chat beitreten</button>
+                </form>
+            </main>
+        </div>
+        
     </div>
     <!--<script src="/socket.io/socket.io.js"></script>
     <script>

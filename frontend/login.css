@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+ 
+}
+.logo{
+    display: flex; 
+    justify-content: top; 
+    align-items: top; 
+    padding-left: 0.5%;
+    padding-top: 1%;
+    background-image: linear-gradient(to right, #5f5f5f, #b43434);
+}
+.join{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to right, #5f5f5f, #b43434);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.form-control{
+    display: block;  
+    position: absolute; 
+    top: 55%;
+    left: 46%;
+    width: 20em;
+    font-size: 40;
+    font-weight: bolder;
+    color: #000;
+    text-align: left; 
+}
+.chat{
+    background-color: rgba(60, 61, 61, 0.219);
+    padding: 12% 14%;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+.field{
+    display: block;  
+    position: absolute; 
+    top: 58%;
+    left: 45%;
+    width: 17em;
+    font-size: 40;
+    font-weight: bolder;
+    color: rgb(252, 252, 252);
+    background-color: #5f5f5f28;
+    text-align: left; 
+}
+.btn{
+    display: block;  
+    position: absolute; 
+    top: 70%;
+    left: 47%;
+    transition-duration: 0.4s;
+    background-color: #0de66f; 
+    color: rgb(5, 5, 5);
+    padding: 5px 25px;
+    text-align: center;
+    font-size: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+
+}
+.btn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+.welcome{
+    display: block;  
+    position: absolute; 
+    top: 45%;
+    left: 43%;
+    font-size: 30px;
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.76);
+    text-align: left; 
+}
