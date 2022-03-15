@@ -33,7 +33,7 @@ io.on('connection', socket =>{
         //Nachricht an neu verbundenen Clients
         socket.emit('message', 'Welcome to DHBW Chat'); 
             let i = 0;
-            while(i <= MESSAGES.length){       
+            while(i <= MESSAGES.length-1){  //brauchen hier ein -1 sinst ein leeres div     
                 socket.emit('message', MESSAGES[i]); 
                 i++;
         }
@@ -46,10 +46,9 @@ io.on('connection', socket =>{
         //Wait for sent messages (other users)
         socket.on('chatMessage', chatMessage => {
             //console.log("Chat-Message: " + chatMessage);
-            io.emit('message',`${username}: ${chatMessage}`);
-            MESSAGES.push(`${username}: ${chatMessage}`);
-            writeFileSync(PATH_MESSAGES, JSON.stringify(MESSAGES), { encoding: 'utf8' });
-            
+            socket.broadcast.emit('message', username + '<br/>' + chatMessage);
+            MESSAGES.push(username + '<br/>' + chatMessage);
+            writeFileSync(PATH_MESSAGES, JSON.stringify(MESSAGES), { encoding: 'utf8' }); 
         });
 
         //Still issues because of connection interrupt after changing index.html -> chat.html
