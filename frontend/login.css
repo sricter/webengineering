@@ -25,8 +25,8 @@
 .form-control{
     display: block;  
     position: absolute; 
-    top: 55%;
-    left: 46%;
+    top: 27em;
+    left: 36em;
     width: 20em;
     font-size: 40;
     font-weight: bolder;
@@ -34,16 +34,20 @@
     text-align: left; 
 }
 .chat{
+     
+    
+    top: 27em;
+    left: 36em;
     background-color: rgba(60, 61, 61, 0.219);
-    padding: 12% 14%;
+    padding: 12em 14em;
     box-sizing: border-box;
     border-radius: 20px;
 }
 .field{
     display: block;  
     position: absolute; 
-    top: 58%;
-    left: 45%;
+    top: 37em;
+    left: 42em;
     width: 17em;
     font-size: 40;
     font-weight: bolder;
@@ -54,8 +58,8 @@
 .btn{
     display: block;  
     position: absolute; 
-    top: 70%;
-    left: 47%;
+    top: 40em;
+    left: 38em;
     transition-duration: 0.4s;
     background-color: #0de66f; 
     color: rgb(5, 5, 5);
@@ -70,12 +74,11 @@
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
 .welcome{
-    display: block;  
-    position: absolute; 
-    top: 45%;
-    left: 43%;
+    position:absolute;
+    top: 11em;
+    left: 17em;
     font-size: 30px;
     font-weight: bolder;
     color: rgba(0, 0, 0, 0.76);
-    text-align: left; 
+    text-align: top; 
 }
