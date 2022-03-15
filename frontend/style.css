@@ -25,13 +25,17 @@
 
 .chat-box{
     flex: 1;
-    background: #646464;
+    background: #646464a2;
     width: 100%; 
+    box-sizing: border-box;
+    border-radius: 20px;
 }
 .msg-row{
     display: flex;
     align-items: center;
     margin: 40px;
+    box-sizing: border-box;
+    border-radius: 20px;
 }
 .text-box{
     border: 0;
@@ -43,8 +47,6 @@
     width: 20%;
     font-size: 16px;
     font-weight: 300;
-    
-
 }
 ::placeholder{
     color: #fff;
@@ -54,6 +56,8 @@
     margin-top: 40px;
     font-weight: 400;
     color: #383838;
+    box-sizing: border-box;
+    border-radius: 20px;
 }
 .connectedUsers{
     list-style: none;
