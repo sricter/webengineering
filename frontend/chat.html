@@ -11,37 +11,37 @@
     <div class="logo">
       <img src="DHBW-Logo2.png" width="420" height="100"  >
     </div>
-    <div class="chat-container">
-        <div class="connected-users-box">
-            <ul id="connectedUsers">Verbundene User:</ul>
-        </div>
-        <div class="chat-box"> <!-- hier werden die Nachrichten angezeigt-->
-        </div>
-        <div class="text-box"> 
-            <form id="chat-message-form">
-                <input
-                  class="insertbox"
-                  id="chatmessage"
-                  type="text"
-                  placeholder="Nachricht hier eingeben"
-                  required
-                  autocomplete="off"
-                />
-                <button class="btn">Nachricht senden</button>
-              </form>
-              <button onclick="showSmileyBtn()">Smiley</button>
-              <div id="smiley-div" class="smiley-box hidden"> 
-                <div class="smiley" onclick="addSmiley(this.innerHTML)">😀</div>
-                <div class="smiley" onclick="addSmiley(this.innerHTML)">😴</div>
-                <div class="smiley" onclick="addSmiley(this.innerHTML)">😎</div>
-                <div class="smiley" onclick="addSmiley(this.innerHTML)">😭</div>
-                <div class="smiley" onclick="addSmiley(this.innerHTML)">😂</div>
-                <div class="smiley" onclick="addSmiley(this.innerHTML)">😍</div>
-                <div class="smiley" onclick="addSmiley(this.innerHTML)">😈</div>
-                <div class="smiley" onclick="addSmiley(this.innerHTML)">😼</div>
-                <div class="smiley" onclick="addSmiley(this.innerHTML)">🙈</div>
-              </div>
-        </div>
+    <div class="connected-users-box">
+      <ul id="connectedUsers">Verbundene User:</ul>
+    </div>
+    <div class="chat-container"> 
+      <div class="chat-box"> <!-- hier werden die Nachrichten angezeigt-->
+      </div>
+      <div class="text-box"> 
+          <form id="chat-message-form">
+              <input
+                class="insertbox"
+                id="chatmessage"
+                type="text"
+                placeholder="Nachricht hier eingeben"
+                required
+                autocomplete="off"
+              />
+              <button class="btn">Nachricht senden</button>
+            </form>
+            <button onclick="showSmileyBtn()">Smiley</button>
+            <div id="smiley-div" class="smiley-box hidden"> 
+              <div class="smiley" onclick="addSmiley(this.innerHTML)">😀</div>
+              <div class="smiley" onclick="addSmiley(this.innerHTML)">😴</div>
+              <div class="smiley" onclick="addSmiley(this.innerHTML)">😎</div>
+              <div class="smiley" onclick="addSmiley(this.innerHTML)">😭</div>
+              <div class="smiley" onclick="addSmiley(this.innerHTML)">😂</div>
+              <div class="smiley" onclick="addSmiley(this.innerHTML)">😍</div>
+              <div class="smiley" onclick="addSmiley(this.innerHTML)">😈</div>
+              <div class="smiley" onclick="addSmiley(this.innerHTML)">😼</div>
+              <div class="smiley" onclick="addSmiley(this.innerHTML)">🙈</div>
+            </div>
+      </div>
     </div>
 
   <!-- Socket io in Frontend verwenden-->

@@ -68,12 +68,13 @@
 }
 .connected-users-box{
     text-align: center;
-    margin-top: 1%;
+    
     font-weight: 400;
     color: #f5f4f4;
     box-sizing: border-box;
-    border-radius: 10px;
+    
     border: dotted green;
+    background-image: linear-gradient(to right, #5f5f5f, #b43434);
 }
 .connectedUsers{
     list-style: none;
