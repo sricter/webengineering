@@ -87,6 +87,7 @@
     text-align: right;
     background-color: rgb(112, 108, 108);
 }
+<<<<<<< HEAD
 .text-box{
     text-align: center;
     margin-top: 1%;
@@ -111,4 +112,30 @@
     border-radius: 10px;
     border: double;
     background-color: #f00b0b85;
+=======
+
+.smiley-box {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    width: 100px;
+
+    margin-bottom: 32px;
+    transition: opacity 0.2s;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.smiley {
+    text-align: center;
+    font-size: 24px;
+    padding: 8px;
+}
+
+.smiley:hover {
+    cursor: pointer;
+>>>>>>> d26d723872dceda7e7fbe76d2841612759154e62
 }
