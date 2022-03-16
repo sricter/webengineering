@@ -28,12 +28,37 @@
                 />
                 <button class="btn">Nachricht senden</button>
               </form>
+              <button onclick="showSmileyBtn()">Smiley</button>
+              <div id="smiley-div" class="smiley-box hidden"> 
+                <div class="smiley" onclick="addSmiley(this.innerHTML)">😀</div>
+                <div class="smiley" onclick="addSmiley(this.innerHTML)">😴</div>
+                <div class="smiley" onclick="addSmiley(this.innerHTML)">😎</div>
+                <div class="smiley" onclick="addSmiley(this.innerHTML)">😭</div>
+                <div class="smiley" onclick="addSmiley(this.innerHTML)">😈</div>
+                <div class="smiley" onclick="addSmiley(this.innerHTML)">😼</div>
+                <div class="smiley" onclick="addSmiley(this.innerHTML)">🙈</div>
+              </div>
         </div>
     </div>
 
   <!-- Socket io in Frontend verwenden-->
+  <script>
+  function addSmiley(smiley) {
+    //let inputEle = document.getElementById('chatmessage');
+    chatmessage.value += smiley;
+  }
+  
+  function showSmileyBtn() {
+    let smiley_div = document.getElementById('smiley-div');
+    if (smiley_div.classList.contains('hidden')) {
+      smiley_div.classList.remove('hidden');
+    } 
+    else {
+      smiley_div.classList.add('hidden');
+    }
+  }
+  </script>
   <script src="/socket.io/socket.io.js"></script>
-
   <script src="main.js"></script>
 </body>
 </html>

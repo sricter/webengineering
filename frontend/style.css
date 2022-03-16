@@ -86,3 +86,28 @@
     text-align: right;
     background-color: rgb(112, 108, 108);
 }
+
+.smiley-box {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    width: 100px;
+
+    margin-bottom: 32px;
+    transition: opacity 0.2s;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.smiley {
+    text-align: center;
+    font-size: 24px;
+    padding: 8px;
+}
+
+.smiley:hover {
+    cursor: pointer;
+}
