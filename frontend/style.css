@@ -87,7 +87,6 @@
     text-align: right;
     background-color: rgb(112, 108, 108);
 }
-<<<<<<< HEAD
 .text-box{
     text-align: center;
     margin-top: 1%;
@@ -112,8 +111,7 @@
     border-radius: 10px;
     border: double;
     background-color: #f00b0b85;
-=======
-
+}
 .smiley-box {
     display: grid;
 
@@ -137,5 +135,4 @@
 
 .smiley:hover {
     cursor: pointer;
->>>>>>> d26d723872dceda7e7fbe76d2841612759154e62
 }
