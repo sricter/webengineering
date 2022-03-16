@@ -89,7 +89,7 @@
 }
 .text-box{
     text-align: center;
-    margin-top: 1%;
+    margin: 3%;
     font-weight: 400;
     color: #f5f4f4;
     box-sizing: border-box;
@@ -105,6 +105,7 @@
 }
 .btn{
     text-align: center;
+    margin: 2%;
     font-size: 80%;
     color: #f5f4f4;
     box-sizing: border-box;
@@ -113,12 +114,10 @@
     background-color: #f00b0b85;
 }
 .smiley-box {
+    text-align: center;
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     width: 100px;
-
     margin-bottom: 32px;
     transition: opacity 0.2s;
 }

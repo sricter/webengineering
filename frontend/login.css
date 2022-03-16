@@ -23,8 +23,8 @@
     color: #fff;
 }
 .form-control{
-    display: block;  
-    position: absolute; 
+    margin-top: 5%;
+    display: block; 
     top: 27em;
     left: 36em;
     width: 20em;
@@ -34,8 +34,6 @@
     text-align: left; 
 }
 .chat{
-     
-    
     top: 27em;
     left: 36em;
     background-color: rgba(60, 61, 61, 0.219);
@@ -44,11 +42,11 @@
     border-radius: 20px;
 }
 .field{
-    display: block;  
-    position: absolute; 
+    margin: auto;
+    display: block; 
     top: 37em;
     left: 42em;
-    width: 17em;
+    width: 27em;
     font-size: 40;
     font-weight: bolder;
     color: rgb(252, 252, 252);
@@ -56,8 +54,8 @@
     text-align: left; 
 }
 .btn{
-    display: block;  
-    position: absolute; 
+    margin: auto;
+    display: block;
     top: 40em;
     left: 38em;
     transition-duration: 0.4s;
@@ -74,11 +72,13 @@
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
 .welcome{
-    position:absolute;
-    top: 11em;
+    margin: auto;
+    vertical-align: top;
+    top: 1em;
     left: 17em;
     font-size: 30px;
     font-weight: bolder;
     color: rgba(0, 0, 0, 0.76);
-    text-align: top; 
+    text-align: top;
+
 }

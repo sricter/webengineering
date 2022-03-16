@@ -15,20 +15,6 @@ socket.on('message', message => {
     addMessageToDOM(message); //Nachricht an DOM
 });
 
-//socket.on('username', username => {
-//    console.log(username);
-//    addMessageToDOM(username);
-//});
-
-
-/*socket.on('disconnect', () => {
-    if(!GLOBAL_USERNAME){
-        const logofftext = GLOBAL_USERNAME + ' hat den Chat verlassen!'
-        console.log(logofftext);
-        io.emit('message', logofftext); //Nachricht an alle verbundenen Clients
-    }
-});*/
-
 // Chat massage submit -> (e) = event parameter
 chatMessageForm.addEventListener('submit', (e) => {
     e.preventDefault();
