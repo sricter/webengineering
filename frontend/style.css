@@ -89,6 +89,7 @@
     margin: 4px;
     padding: 10px;
     background-color: rgb(54, 50, 50);
+    word-wrap: break-word;
 }
 
 .myMessage{
@@ -100,6 +101,7 @@
     padding: 8px;
     text-align: right;
     background-color: rgb(112, 108, 108);
+    word-wrap: break-word;
 }
 .text-box{
     text-align: center;
