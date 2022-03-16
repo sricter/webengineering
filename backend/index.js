@@ -14,7 +14,7 @@ const userArray = [];
 
 //Message storing
 const PATH_MESSAGES = "backend/messages.json";
-MESSAGES = JSON.parse(readFileSync(PATH_MESSAGES, {encoding: 'utf-8'}));*/
+MESSAGES = JSON.parse(readFileSync(PATH_MESSAGES, {encoding: 'utf-8'}));
 const MESSAGES = existsSync(PATH_MESSAGES) ? JSON.parse(readFileSync(PATH_MESSAGES, {
     encoding: 'utf-8'
 })) : [];
