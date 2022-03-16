@@ -55,11 +55,12 @@
 }
 .connected-users-box{
     text-align: center;
-    margin-top: 40px;
+    margin-top: 1%;
     font-weight: 400;
-    color: #383838;
+    color: #f5f4f4;
     box-sizing: border-box;
-    border-radius: 20px;
+    border-radius: 10px;
+    border: dotted green;
 }
 .connectedUsers{
     list-style: none;
@@ -85,4 +86,29 @@
     padding: 8px;
     text-align: right;
     background-color: rgb(112, 108, 108);
+}
+.text-box{
+    text-align: center;
+    margin-top: 1%;
+    font-weight: 400;
+    color: #f5f4f4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #5f5f5f93;
+}
+.insertbox{
+    text-align: center;
+    color: #f5f4f4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #5f5f5f93;
+}
+.btn{
+    text-align: center;
+    font-size: 80%;
+    color: #f5f4f4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: double;
+    background-color: #f00b0b85;
 }
