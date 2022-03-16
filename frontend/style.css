@@ -32,6 +32,19 @@
     border-radius: 20px;
     overflow: scroll; /*kann in Chatbox scrollen*/
 }
+.chat-box::-webkit-scrollbar {
+    width: 10px;               /* Weite Scrollbar */
+  }
+  
+.chat-box::-webkit-scrollbar-track {
+    background: rgb(97, 95, 92);        /* Farbe Tracking Feld */
+  }
+  
+.chat-box::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 0, 0, 0.39);    /* Farben für Rahmen und Scrollbar */
+    border-radius: 15px;      
+    border: 3px solid rgb(255, 0, 0);  
+  }
 .msg-row{
     display: flex;
     align-items: center;
