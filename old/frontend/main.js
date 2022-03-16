@@ -1,5 +1,5 @@
 const socket = io(); //können wir hier verwenden wegen Zeile in chat.html
-const chatBox = document.querySelector('.chat-box'); //id aus chat.html
+const chatBox = document.querySelector('.chat-box'); //class aus chat.html
 const connectedUsers = document.getElementById('connectedUsers');
 const chatMessageForm = document.getElementById('chat-message-form');
 const GLOBAL_USERNAME = location.search.substring(10);
@@ -36,14 +36,27 @@ chatMessageForm.addEventListener('submit', (e) => {
     e.target.elements.chatmessage.value = '';
     //console.log(chatMessage);
     socket.emit('chatMessage', chatMessage);
+    addMyMessageToDOM(chatMessage);
 });
 
-//vielleicht ändern
 function addMessageToDOM(message){
     const div = document.createElement('div');
     div.classList.add('message');
     div.innerHTML = message;
     chatBox.appendChild(div);
+
+    //Focus auf neue Nachricht
+    chatBox.scrollTop = chatBox.scrollHeight
+}
+
+function addMyMessageToDOM(message){
+    const div = document.createElement('div');
+    div.classList.add('myMessage');
+    div.innerHTML = message;
+    chatBox.appendChild(div);
+
+    //Focus auf neue Nachricht
+    chatBox.scrollTop = chatBox.scrollHeight
 }
 
 function showUsers(userList){
