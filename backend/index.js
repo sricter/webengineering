@@ -62,12 +62,17 @@ io.on('connection', socket =>{
     //Tipp-Status
     socket.on('sendTypingStatus', GLOBAL_USERNAME =>{
         const typingUser = GLOBAL_USERNAME;
-        typingArray.push(typingUser);
+        checkIncluded = typingArray.includes(typingUser);
+        if (!checkIncluded){
+            typingArray.push(typingUser);
+        }
         io.emit('typingUsers', typingArray);
-        socket.on('typingStop', () => {
-            deleteNotTypingUsers(typingArray, typingUser);
-            io.emit('typingUsers', typingArray);
-        })
+    })
+    //Tipp-Status loeschen
+    socket.on('typingStop', GLOBAL_USERNAME => {
+        const typingUser = GLOBAL_USERNAME;
+        deleteNotTypingUsers(typingArray, typingUser);
+        io.emit('typingUsers', typingArray);
     })
 });
 

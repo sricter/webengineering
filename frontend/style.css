@@ -161,9 +161,6 @@
     font-weight: 400;
     color: #f5f4f4;
     box-sizing: border-box;
-
-    border: dotted green;
-    background-image: linear-gradient(to right, #5f5f5f, #b43434);
 }
 .typingUsers{
     list-style: none;

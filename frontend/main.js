@@ -6,6 +6,7 @@ const GLOBAL_USERNAME = location.search.substring(10);
 //Variablen fuer Tipp-Status
 var _typingIndicator = document.querySelector('.typingUsers');
 var _input = document.querySelector('#chatmessage');
+var vTypingState;
 
 //Username an backend übertragen
 socket.emit('sendUsername', GLOBAL_USERNAME);
@@ -65,44 +66,54 @@ function showUsers(userList){
     
 }
 
+socket.on('typingUsers', typingArray =>{
+    showTypingUsers(typingArray);
+    })
+
 //Tipp-Status an Backend senden
 function commTypingUsers(){
-    socket.emit('sendTypingStatus', GLOBAL_USERNAME)
-    socket.on('typingUsers', typingArray =>{
-        showTypingUsers(typingArray);
-    })
+    console.log("comm");
+    if (vTypingState != "active") {
+        console.log('in if');
+        vTypingState = "active";
+        socket.emit('sendTypingStatus', GLOBAL_USERNAME)
+        }
 }
 //Tipp-Status aktualisieren
 function showTypingUsers(typingList){
+    console.log("show");
     while(document.getElementById('typingX')){
         let item = document.getElementById('typingX');
         typingUsers.removeChild(item);
     }
-    typingList.map(typingN =>
+    typingList.map(typingX =>
         {const li = document.createElement('li');
-        li.setAttribute('id', 'typingN');
-        li.appendChild(document.createTextNode(typingN));
+        li.setAttribute('id', 'typingX');
+        li.appendChild(document.createTextNode(typingX+" tippt gerade..."));
         typingUsers.appendChild(li)});
 }
 
 //Anzeige von Tippenden Nutzern beenden
 function removeTypingUser(){
-    socket.emit('typingStop');
+    if (vTypingState != "not-active"){
+        vTypingState = "not-active";
+        socket.emit('typingStop', GLOBAL_USERNAME);
+    }
+
 }
 
 //Tippen registrieren
 function initTypingIndicator() {
     /*_input.onfocus = function(){
-        showIndicator();
-    };*/
-
-    _input.onkeyup = function() {
         commTypingUsers();
-    };
-
+    }*/
+    _input.onkeydown = function() {
+        commTypingUsers();
+    }
     _input.onblur = function(){
+        console.log("blur");
         removeTypingUser();
-    };
+    }
 }
 
 initTypingIndicator();
