@@ -11,6 +11,7 @@ const io = socketio(server); //Socketio für Server verwenden
 
 //var GLOBAL_USERNAME = '';
 const userArray = [];
+const typingArray = [];
 
 //Message storing
 const PATH_MESSAGES = "backend/messages.json";
@@ -57,6 +58,17 @@ io.on('connection', socket =>{
             io.emit('connectedUsers', userArray);
         });
     })
+
+    //Tipp-Status
+    socket.on('sendTypingStatus', GLOBAL_USERNAME =>{
+        const typingUser = GLOBAL_USERNAME;
+        typingArray.push(typingUser);
+        io.emit('typingUsers', typingArray);
+        socket.on('typingStop', () => {
+            deleteNotTypingUsers(typingArray, typingUser);
+            io.emit('typingUsers', typingArray);
+        })
+    })
 });
 
 const PORT = 3000 || process.env.PORT;
@@ -64,4 +76,8 @@ server.listen(PORT, () => console.log(`Server läuft auf Port ${PORT}`)); //run 
 
 function deleteDisconnectedUsersFromArray(userArray, username){
     userArray.splice(userArray.indexOf(username),1)
+}
+
+function deleteNotTypingUsers(typingArray, typingUser){
+    typingArray.splice(typingArray.indexOf(typingUser),1)
 }
