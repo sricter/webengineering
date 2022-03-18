@@ -152,17 +152,15 @@
     cursor: pointer;
 }
 .typing-users-box{
-    position:relative;
-    top: 15%;
-    right: 16%;
-    margin: 1px;
+    position: fixed;
+    bottom: 4%;
+    left:77%;
+    background-color: transparent;
     text-align: center;
-
     font-weight: 400;
-    color: #f5f4f4;
     box-sizing: border-box;
+    box-sizing: border-box;
+    color: #f5f4f4;
 }
 .typingUsers{
-    list-style: none;
-    padding: 30px;
 }

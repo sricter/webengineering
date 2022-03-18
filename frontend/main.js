@@ -89,9 +89,12 @@ function showTypingUsers(typingList){
     typingList.map(typingX =>
         {const li = document.createElement('li');
         li.setAttribute('id', 'typingX');
-        li.appendChild(document.createTextNode(typingX+" tippt gerade..."));
-        typingUsers.appendChild(li)});
-}
+        if(typingX!=GLOBAL_USERNAME){
+            li.appendChild(document.createTextNode(typingX+" tippt gerade..."));
+            typingUsers.appendChild(li)
+            }
+        })
+        }
 
 //Anzeige von Tippenden Nutzern beenden
 function removeTypingUser(){
@@ -111,7 +114,6 @@ function initTypingIndicator() {
         commTypingUsers();
     }
     _input.onblur = function(){
-        console.log("blur");
         removeTypingUser();
     }
 }
