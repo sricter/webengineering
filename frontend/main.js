@@ -4,9 +4,10 @@ const connectedUsers = document.getElementById('connectedUsers');
 const chatMessageForm = document.getElementById('chat-message-form');
 const GLOBAL_USERNAME = location.search.substring(10);
 //Variablen fuer Tipp-Status
-var _typingIndicator = document.querySelector('.typingUsers');
-var _input = document.querySelector('#chatmessage');
+//var _typingIndicator = document.querySelector('.typingUsers');
+const _input = document.querySelector('#chatmessage');
 var vTypingState;
+var timeStamp1;
 
 //Username an backend übertragen
 socket.emit('sendUsername', GLOBAL_USERNAME);
@@ -72,16 +73,22 @@ socket.on('typingUsers', typingArray =>{
 
 //Tipp-Status an Backend senden
 function commTypingUsers(){
-    console.log("comm");
     if (vTypingState != "active") {
-        console.log('in if');
         vTypingState = "active";
         socket.emit('sendTypingStatus', GLOBAL_USERNAME)
         }
+    setTimeout(inputTimer, 3000);
 }
+
+function inputTimer() {
+    var timeStamp2 = Date.now();
+    if ((timeStamp2-timeStamp1)>2900){
+    removeTypingUser();
+    }
+}
+
 //Tipp-Status aktualisieren
 function showTypingUsers(typingList){
-    console.log("show");
     while(document.getElementById('typingX')){
         let item = document.getElementById('typingX');
         typingUsers.removeChild(item);
@@ -89,12 +96,15 @@ function showTypingUsers(typingList){
     typingList.map(typingX =>
         {const li = document.createElement('li');
         li.setAttribute('id', 'typingX');
-        if(typingX!=GLOBAL_USERNAME){
+        if(typingX==GLOBAL_USERNAME){
+            li.appendChild(document.createTextNode("Du tippst gerade..."));
+            typingUsers.appendChild(li)
+        } else{
             li.appendChild(document.createTextNode(typingX+" tippt gerade..."));
             typingUsers.appendChild(li)
-            }
+         }
         })
-        }
+}
 
 //Anzeige von Tippenden Nutzern beenden
 function removeTypingUser(){
@@ -107,14 +117,9 @@ function removeTypingUser(){
 
 //Tippen registrieren
 function initTypingIndicator() {
-    /*_input.onfocus = function(){
-        commTypingUsers();
-    }*/
     _input.onkeydown = function() {
+        timeStamp1 = Date.now();
         commTypingUsers();
-    }
-    _input.onblur = function(){
-        removeTypingUser();
     }
 }
 
