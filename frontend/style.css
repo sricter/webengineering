@@ -113,6 +113,9 @@
     background-color: #5f5f5f93;
 }
 .insertbox{
+    width: 100%;
+    height: 100%;
+    font-size: 80%;
     text-align: center;
     color: #f5f4f4;
     box-sizing: border-box;
@@ -122,6 +125,8 @@
 .btn{
     text-align: center;
     margin: 2%;
+    width: 80%;
+    height: 100%;
     font-size: 80%;
     color: #f5f4f4;
     box-sizing: border-box;

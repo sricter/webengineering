@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="DHBW-Logo2.png">
   <title>DHBW-Chat</title>
 </head>
 <body>
@@ -23,13 +23,14 @@
                 class="insertbox"
                 id="chatmessage"
                 type="text"
-                placeholder="Nachricht hier eingeben"
+                placeholder="Nachricht eingeben"
                 required
                 autocomplete="off"
               />
               <button class="btn">Nachricht senden</button>
             </form>
             <button onclick="showSmileyBtn()">Smiley</button>
+            <!-- Smilies anzeigen und mit onclick zu js Funktion verlinken -->
             <div id="smiley-div" class="smiley-box hidden"> 
               <div class="smiley" onclick="addSmiley(this.innerHTML)">😀</div>
               <div class="smiley" onclick="addSmiley(this.innerHTML)">😴</div>
@@ -49,10 +50,12 @@
 
   <!-- Socket io in Frontend verwenden-->
   <script>
+  // Smiley in Inputfeld übertragen
   function addSmiley(smiley) {
     chatmessage.value += smiley;
   }
   
+  // Smiley Leiste ein und ausblenden
   function showSmileyBtn() {
     let smiley_div = document.getElementById('smiley-div');
     if (smiley_div.classList.contains('hidden')) {
